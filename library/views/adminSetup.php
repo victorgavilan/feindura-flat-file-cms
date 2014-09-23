@@ -244,6 +244,16 @@ $hidden = ($SAVEDFORM !== false && $SAVEDFORM != 'adminSettings' && checkBasePat
 
     <div class="row">
       <div class="span3 formLeft">
+        <input type="checkbox" id="cfg_cookies" name="cfg_cookies" value="true"<?php if($adminConfig['cookies']['active']) echo ' checked="checked"'; ?> class="toolTipLeft" title="<?php echo $langFile['ADMINSETUP_TEXT_COOKIES'].'::'.$langFile['ADMINSETUP_TIP_COOKIES']; ?>"><br>
+      </div>
+      <div class="span5">
+        <label for="cfg_cache"><span class="toolTipRight" title="::<?php echo $langFile['ADMINSETUP_TIP_COOKIES']; ?>"><?php echo $langFile['ADMINSETUP_TEXT_COOKIES']; ?></span></label>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="span3 formLeft">
         <input type="checkbox" id="cfg_cache" name="cfg_cache" value="true"<?php if($adminConfig['cache']['active']) echo ' checked="checked"'; ?> class="toolTipLeft" title="<?php echo $langFile['ADMINSETUP_TEXT_CACHE'].'::'.$langFile['ADMINSETUP_TIP_CACHE']; ?>"><br>
       </div>
       <div class="span5">

@@ -27,28 +27,36 @@
  * -> $feindura_websiteStatistic
  */
 
-// -> starts a SESSION; needed to prevent multiple counting of the visitor in the statistics
-ini_set('session.gc_maxlifetime', 3600); // saves the session for 60 minutes
-ini_set('session.cookie_lifetime', 3600); // saves the session for 60 minutes
-session_name('session');
 
-// prevent Full Path Disclosure, through session error
-$sessid = (isset($_COOKIE['session']))
-    ? $_COOKIE['session']
-    : session_id();
+  // -> starts a SESSION; needed to prevent multiple counting of the visitor in the statistics
+  ini_set('session.gc_maxlifetime', 3600); // saves the session for 60 minutes
+  ini_set('session.cookie_lifetime', 3600); // saves the session for 60 minutes
+  ini_set('session.use_only_cookies', 1);
+  
+//Only use PHP sessions at frontend if cookies are activate
+if ( $adminConfig['cookies']['active']){  
+  session_name('session');
 
-if(empty($sessid))
-  session_start();
-elseif(preg_match('/^[a-z0-9]{5,}$/', $sessid))
-  session_start();
-unset($sessid);
+  // prevent Full Path Disclosure, through session error
+  $sessid = (isset($_COOKIE['session']))
+      ? $_COOKIE['session']
+      : session_id();
 
-// for statistics testing
-// unset($_SESSION['feinduraSession']['log']);
+  if(empty($sessid))
+    session_start();
+  elseif(preg_match('/^[a-z0-9]{5,}$/', $sessid))
+    session_start();
+  unset($sessid);
 
-// -> CHECKS if cookies are enabled
-if(!isset($_COOKIE['feindura_checkCookies']) || $_COOKIE['feindura_checkCookies'] != 'true')
-    @setcookie( "feindura_checkCookies", 'true'); // try to set a cookie, to check in the next webpage whether its set or not
+
+  // for statistics testing
+  // unset($_SESSION['feinduraSession']['log']);
+
+  // -> CHECKS if cookies are enabled
+  if ((!isset($_COOKIE['feindura_checkCookies']) || $_COOKIE['feindura_checkCookies'] != 'true') && $adminConfig['cookies'] == 'active')
+      @setcookie( "feindura_checkCookies", 'true'); // try to set a cookie, to check in the next webpage whether its set or not
+
+}
 
 // -> INCLUDE ALL important FUNCTIONS, CLASSES and CONFIG vars
 require_once(dirname(__FILE__)."/library/includes/general.include.php");

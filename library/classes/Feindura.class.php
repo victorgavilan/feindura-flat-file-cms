@@ -845,7 +845,7 @@ class Feindura extends FeinduraBase {
       $this->loggedIn = false;
 
     // -> CHECKS if cookies, means the cookie in the feindura.include.php file was set
-    if(!isset($_COOKIE['feindura_checkCookies']) || $_COOKIE['feindura_checkCookies'] != 'true') {
+    if ((!isset($_COOKIE['feindura_checkCookies']) || $_COOKIE['feindura_checkCookies'] != 'true') && $adminConfig['cookies'] == 'active') {
       $this->sessionId = htmlspecialchars(session_name().'='.session_id()); //SID
     }
 

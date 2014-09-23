@@ -86,6 +86,8 @@ if(isset($_POST['send']) && $_POST['send'] ==  'adminSetup') {
   $adminConfig['timezone']                 = $_POST['cfg_timeZone'];
   $adminConfig['prettyURL']                = $_POST['cfg_prettyURL'];
 
+  $adminConfig['cookies']['active']          = $_POST['cfg_cookies'];
+
   $adminConfig['cache']['active']          = $_POST['cfg_cache'];
   $adminConfig['cache']['timeout']         = $_POST['cfg_cacheTimeout'];
 

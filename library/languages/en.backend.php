@@ -443,6 +443,10 @@ $langFile['ADMINSETUP_GENERAL_PRETTYURL_warning']                       = 'WARNI
 $langFile['ADMINSETUP_GENERAL_PRETTYURL_error_save']                    = '<b>Pretty URLs</b> could not be activated'.$langFile['ERROR_SAVE_FILE'].'/.htaccess';
 $langFile['ADMINSETUP_GENERAL_PRETTYURL_error_modul']                   = '<b>Pretty URLs</b> could not be activated, because the Apache module MOD_REWRITE modul could not be found';
 
+// ---------- cookies settings
+$langFile['ADMINSETUP_TEXT_COOKIES']                                        = 'Activate feindura cookies';
+$langFile['ADMINSETUP_TIP_COOKIES']                                         = 'If active, feindura will use cookies to storage de session ID at the frontend for statistics purpouses. If you disabled it then feindura will use a variable in the URL instead.';
+
 // ---------- cache settings
 $langFile['ADMINSETUP_TEXT_CACHE']                                        = 'Activate cache';
 $langFile['ADMINSETUP_TIP_CACHE']                                         = 'If active, all pages will be cached. This can seed up the website, but also leads to not so actual content.[br][br][span class=hint]The cached will be refreshed, when saving pages.[/span]';
@@ -836,7 +840,7 @@ $langFile['pagethumbnail_submit_tip']                                     = 'Upl
 $langFile['PAGETHUMBNAIL_ERROR_nofile']                                   = 'You didn&#145;t select any file.';
 $langFile['PAGETHUMBNAIL_ERROR_nouploadedfile']                           = 'No file was uploaded.';
 $langFile['PAGETHUMBNAIL_ERROR_filesize']                                 = 'The filesize of the uploaded image is probably to big.<br>The maximum filesize is';
-$langFile['PAGETHUMBNAIL_ERROR_wrongformat']                              = 'The selected file has a not supported format';
+$langFile['PAGETHUMBNAIL_ERROR_wrongformat']                              = 'The selecet file has a not supported format';
 $langFile['PAGETHUMBNAIL_ERROR_NODIR_START']                              = 'The thumbnail folder'; // The thumbnail-folder..
 $langFile['PAGETHUMBNAIL_ERROR_NODIR_END']                                = 'doesn&#145;t exist.';
 $langFile['PAGETHUMBNAIL_ERROR_CREATEDIR_END']                            = 'couldn&#145;t be created.';
