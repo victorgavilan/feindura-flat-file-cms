@@ -204,6 +204,7 @@ $categoryConfig[0]['localized'][0]['name'] = $langFile['CATEGORIES_TOOLTIP_NONCA
 /**
  * CHECK for UPDATES
  */
+/* DESACTIVAMOS LAS ACTUALIZACIONES para evitar que se sobrescriba el código que impide el uso de cookies ----------------------------------------
 
 if($_GET['site'] == 'dashboard' || (empty($_GET['site']) && empty($_GET['page']))) {
   $cmsVersion = file(dirname(__FILE__).'/../../CHANGELOG');
@@ -213,7 +214,7 @@ if($_GET['site'] == 'dashboard' || (empty($_GET['site']) && empty($_GET['page'])
     include(dirname(__FILE__).'/update.include.php');
   }
 }
-
+*/
 
 
 // -> SEND BACKEND HEADER

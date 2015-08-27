@@ -1536,7 +1536,7 @@ function saveSitemap($force = false) {
     if($pageContent['category'] != 0 && !$GLOBALS['categoryConfig'][$pageContent['category']]['public'])
       continue;
 
-    if($pageContent['public']) {
+    if( $pageContent['public'] && (strpos($pageContent['localized'][0]['tags'], 'noSitemap') === false ) ) {
       // generate page link
       $link = GeneralFunctions::createHref($pageContent,false,$GLOBALS['websiteConfig']['multiLanguageWebsite']['mainLanguage'],true);
       // add page to sitemap
